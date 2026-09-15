@@ -51,6 +51,11 @@
           "name": "Nexxion.ai",
           "url": "https://nexxion.ai/",
           "logo": "/sponsors/nexxion.svg"
+        },
+        {
+          "name": "Rod Jenkins",
+          "url": "https://github.com/scriptmonkey",
+          "person": true
         }
       ]
     }
