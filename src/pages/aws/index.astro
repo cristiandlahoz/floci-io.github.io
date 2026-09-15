@@ -567,9 +567,15 @@ aws athena get-query-results --query-execution-id <span class="acc">$QUERY_ID</s
   .compat-bar-inner { height: 6px; border-radius: 3px; }
 
   /* SERVICES */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 60px; }
-  .services-grid::after { content: ''; grid-column: auto / -1; background: var(--bg2); }
-  .service-item { background: var(--bg2); padding: 18px 20px; display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 10px; row-gap: 3px; transition: background 0.15s; cursor: pointer; color: inherit; text-decoration: none; }
+  /* The 1px grid gap is filled by a ring drawn on each ITEM, not by a border-coloured
+     background on the grid: with the latter, a partial last row renders its empty cells
+     as bright slabs (and `grid-column: auto / -1` only parks a filler in the last column,
+     not across the rest of the row). An empty cell has no item, so it draws no ring and
+     stays plain background, while its filled neighbours still line its edges. The grid's
+     own border supplies the outer edge: the outermost rings fall outside the padding box
+     and are clipped by overflow:hidden, so edges stay 1px instead of doubling. */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 60px; }
+  .service-item { background: var(--bg2); box-shadow: 0 0 0 1px var(--border); padding: 18px 20px; display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 10px; row-gap: 3px; transition: background 0.15s; cursor: pointer; color: inherit; text-decoration: none; }
   .service-item:hover { background: var(--bg3); }
   .service-item.exclusive { background: var(--accent-dim); }
   .service-item.exclusive:hover { background: rgba(122,127,214,0.2); }

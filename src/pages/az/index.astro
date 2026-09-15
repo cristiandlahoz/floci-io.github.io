@@ -492,9 +492,15 @@ await blob.upload(<span class="str">"Hello from floci-az!"</span>, 20);</span>
   .hero-logo-svg .floci-dot.az { fill: #0078D4; }
 
   /* SERVICE CARDS */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 60px; }
-  .services-grid::after { content: ''; grid-column: auto / -1; background: var(--bg); }
-  .service-item { background: var(--bg); padding: 18px 20px; display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 10px; row-gap: 3px; transition: background 0.15s; cursor: pointer; color: inherit; text-decoration: none; }
+  /* The 1px grid gap is filled by a ring drawn on each ITEM, not by a border-coloured
+     background on the grid: with the latter, a partial last row renders its empty cells
+     as bright slabs (and `grid-column: auto / -1` only parks a filler in the last column,
+     not across the rest of the row). An empty cell has no item, so it draws no ring and
+     stays plain background, while its filled neighbours still line its edges. The grid's
+     own border supplies the outer edge: the outermost rings fall outside the padding box
+     and are clipped by overflow:hidden, so edges stay 1px instead of doubling. */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 60px; }
+  .service-item { background: var(--bg); box-shadow: 0 0 0 1px var(--border); padding: 18px 20px; display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 10px; row-gap: 3px; transition: background 0.15s; cursor: pointer; color: inherit; text-decoration: none; }
   .service-item:hover { background: var(--bg3); }
   .service-icon { width: 16px; height: 16px; color: #0078D4; flex-shrink: 0; grid-column: 1; grid-row: 1; }
   .service-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }

@@ -43,6 +43,7 @@ export const AWS_SERVICES: CloudService[] = [
   { name: 'SNS', proto: 'Query / JSON', category: 'messaging', url: 'https://aws.amazon.com/sns/' },
   { name: 'DynamoDB + Streams', proto: 'JSON 1.1', category: 'database', url: 'https://aws.amazon.com/dynamodb/' },
   { name: 'Lambda', proto: 'REST JSON', category: 'compute', docker: 'default', url: 'https://aws.amazon.com/lambda/' },
+  { name: 'Lambda MicroVMs', proto: 'REST JSON', category: 'compute', url: 'https://docs.aws.amazon.com/lambda/latest/dg/microvms.html', exclusive: true },
   { name: 'API Gateway REST', proto: 'REST JSON', category: 'networking', url: 'https://aws.amazon.com/api-gateway/' },
   { name: 'API Gateway v2', proto: 'HTTP + WebSocket', category: 'networking', url: 'https://aws.amazon.com/api-gateway/', exclusive: true },
   { name: 'IAM', proto: 'Query (68+ ops)', category: 'identity', url: 'https://aws.amazon.com/iam/' },
@@ -72,7 +73,7 @@ export const AWS_SERVICES: CloudService[] = [
   { name: 'Athena', proto: 'REST JSON', category: 'analytics', docker: 'default', url: 'https://aws.amazon.com/athena/' },
   { name: 'Glue', proto: 'REST JSON', category: 'analytics', url: 'https://aws.amazon.com/glue/' },
   { name: 'Data Firehose', proto: 'REST JSON', category: 'analytics', url: 'https://aws.amazon.com/firehose/' },
-  { name: 'Bedrock Runtime', proto: 'REST JSON', category: 'ai', url: 'https://aws.amazon.com/bedrock/' },
+  { name: 'Bedrock + Runtime', proto: 'REST JSON', category: 'ai', url: 'https://aws.amazon.com/bedrock/' },
   { name: 'EKS', proto: 'REST JSON', category: 'containers', docker: 'default', url: 'https://aws.amazon.com/eks/' },
   { name: 'ELB v2', proto: 'REST JSON', category: 'networking', url: 'https://aws.amazon.com/elasticloadbalancing/', exclusive: true },
   { name: 'CodeBuild', proto: 'REST JSON', category: 'devtools', docker: 'default', url: 'https://aws.amazon.com/codebuild/', exclusive: true },
@@ -133,6 +134,23 @@ export const AWS_SERVICES: CloudService[] = [
   { name: 'Resource Explorer', proto: 'REST JSON', category: 'devtools', url: 'https://docs.aws.amazon.com/resource-explorer/latest/userguide/welcome.html' },
   { name: 'Fault Injection Service', proto: 'REST JSON', category: 'devtools', url: 'https://docs.aws.amazon.com/fis/' },
   { name: 'CodeGuru Reviewer', proto: 'REST JSON', category: 'devtools', url: 'https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/' },
+  { name: 'IAM Access Analyzer', proto: 'REST JSON', category: 'identity', url: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html' },
+  { name: 'AWS Account', proto: 'REST JSON', category: 'identity', url: 'https://docs.aws.amazon.com/accounts/latest/reference/' },
+  { name: 'AppIntegrations', proto: 'REST JSON', category: 'messaging', url: 'https://docs.aws.amazon.com/appintegrations/latest/APIReference/' },
+  { name: 'Security Hub', proto: 'REST JSON', category: 'security', url: 'https://docs.aws.amazon.com/securityhub/' },
+  { name: 'Detective', proto: 'REST JSON', category: 'security', url: 'https://docs.aws.amazon.com/detective/' },
+  { name: 'Inspector', proto: 'REST JSON', category: 'security', url: 'https://docs.aws.amazon.com/inspector/' },
+  { name: 'Macie', proto: 'REST JSON', category: 'security', url: 'https://docs.aws.amazon.com/macie/' },
+  { name: 'Verified Permissions', proto: 'JSON 1.0', category: 'security', url: 'https://docs.aws.amazon.com/verifiedpermissions/' },
+  { name: 'Control Catalog', proto: 'REST JSON', category: 'devtools', url: 'https://docs.aws.amazon.com/controlcatalog/latest/APIReference/' },
+  { name: 'DataSync', proto: 'JSON 1.1', category: 'storage', url: 'https://docs.aws.amazon.com/datasync/' },
+  { name: 'Global Accelerator', proto: 'JSON 1.1', category: 'networking', url: 'https://docs.aws.amazon.com/global-accelerator/' },
+  { name: 'CloudWatch OAM', proto: 'REST JSON', category: 'observability', url: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html' },
+  { name: 'Redshift Data API', proto: 'JSON 1.1', category: 'analytics', url: 'https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html' },
+  { name: 'Translate', proto: 'JSON 1.1', category: 'ai', url: 'https://docs.aws.amazon.com/translate/' },
+  { name: 'AWS Budgets', proto: 'JSON 1.1', category: 'billing', url: 'https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html' },
+  { name: 'BCM Pricing Calculator', proto: 'JSON 1.1', category: 'billing', url: 'https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html' },
+  { name: 'AWS Marketplace', proto: 'REST JSON + CBOR', category: 'billing', url: 'https://docs.aws.amazon.com/marketplace/' },
 ];
 
 export const AZURE_SERVICES: CloudService[] = [
@@ -162,6 +180,8 @@ export const AZURE_SERVICES: CloudService[] = [
   { name: 'Managed Identity', proto: 'IMDS · OAuth2 tokens', category: 'identity', url: 'https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/' },
   { name: 'Container Instances', proto: 'ARM · REST JSON', category: 'containers', docker: 'optional', url: 'https://learn.microsoft.com/en-us/azure/container-instances/' },
   { name: 'Microsoft Graph', proto: 'REST JSON · /v1.0', category: 'identity', url: 'https://learn.microsoft.com/en-us/graph/overview' },
+  { name: 'Container Apps', proto: 'ARM · ingress proxy', category: 'containers', docker: 'optional', url: 'https://learn.microsoft.com/en-us/azure/container-apps/' },
+  { name: 'SignalR', proto: 'WebSocket · negotiate', category: 'messaging', url: 'https://learn.microsoft.com/en-us/azure/azure-signalr/' },
 ];
 
 export const GCP_SERVICES: CloudService[] = [

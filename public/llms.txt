@@ -9,7 +9,7 @@
 ### floci (AWS)
 - URL: https://floci.io/aws/
 - GitHub: https://github.com/floci-io/floci
-- 100 emulated AWS services on port 4566
+- 119 emulated AWS services on port 4566
 - Drop-in LocalStack replacement: same AWS SDK endpoint override, same CLI flags
 - 138× faster startup than LocalStack, 91% less memory
 
@@ -19,18 +19,20 @@ Kinesis, Firehose, ElastiCache, RDS, Aurora, Cognito, SES, STS, Redshift, EFS,
 Organizations, IAM Identity Center, Resource Access Manager, Service Catalog,
 Service Quotas, Control Tower, Lake Formation, EMR Serverless, Network Firewall,
 Route 53 Resolver, Managed Prometheus, Amazon Connect, Comprehend, Rekognition,
-Resource Explorer, Fault Injection Service, CodeGuru Reviewer, and more.
+Resource Explorer, Fault Injection Service, CodeGuru Reviewer, Security Hub,
+Inspector, Macie, Detective, Verified Permissions, IAM Access Analyzer, DataSync,
+Global Accelerator, Translate, AWS Budgets, AWS Marketplace, and more.
 
 ### floci-az (Azure)
 - URL: https://floci.io/az/
 - GitHub: https://github.com/floci-io/floci-az
-- 26 emulated Azure services on port 4577
+- 28 emulated Azure services on port 4577
 - MIT license: no Azurite license restrictions
 
 Supported services include: Blob Storage, Queue Storage, Table Storage, Azure Functions,
 App Configuration, Key Vault, Event Hubs, Service Bus, Cosmos DB, AKS, Azure SQL,
 Virtual Machines, Cache for Redis, Entra ID, Event Grid, PostgreSQL, MySQL, MariaDB,
-Container Instances, Microsoft Graph, and more.
+Container Instances, Container Apps, SignalR, Microsoft Graph, and more.
 
 ### floci-gcp (Google Cloud)
 - URL: https://floci.io/gcp/
@@ -49,7 +51,7 @@ GKE, BigQuery, Managed Kafka, and more.
 - No Oracle Cloud account or uploaded API keys required
 
 Supported services: Object Storage, Identity (IAM), Queue, Streaming, KMS,
-Vault Secrets, Functions.
+Vault Secrets, Functions, OKE.
 
 ## Key Facts
 
